@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Clock</title>
+    <style>
+        #box{
+            width: 60vw;
+            height: 50vh;
+            border: 2px solid black;
+            font-size: 112px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            background-color: aqua;
+            
+        }
+        body{
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clock App</h1>
+    <div id="box"></div>
+    <script>
+        setInterval(()=>{
+            let time=new Date();
+            let hour=time.getHours();
+            let min=time.getMinutes();
+            let sec=time.getSeconds();
+            
+            let am_pm;
+            if (hour>=12)
+            {
+                am_pm="PM";
+                hour-=12;
+            }
+            else
+            {
+                am_pm="AM";
+            }
+            let current_time=`${hour}:${min}:${sec} ${am_pm}`;
+            document.getElementById('box').innerHTML=current_time;
+
+        },1000);
+    </script>
+</body>
+</html>
